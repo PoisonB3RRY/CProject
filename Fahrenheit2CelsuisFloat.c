@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
 
     while (fahr <= upper)
     {
-        celsuis = 5 * (fahr - 32) / 9;
+        celsuis = (fahr - 32) * (5.0 / 9.0);
         printf("%3.0f   %6.1f\n", fahr, celsuis);
         fahr = fahr + step;
     }

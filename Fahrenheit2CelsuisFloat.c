@@ -11,6 +11,8 @@ int main(int argc, char const *argv[])
 
     fahr = lower;
 
+    printf("TEMPERATURE CONVERSION\n");
+
     while (fahr <= upper)
     {
         celsuis = (fahr - 32) * (5.0 / 9.0);

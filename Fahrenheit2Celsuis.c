@@ -15,7 +15,7 @@ int main(int argc, char const *argv[])
     while (fahr <= upper)
     {
         calsius = (fahr - 32) * 5 / 9;
-        printf("%d\t%d\n", fahr, calsius);
+        printf("%3d%6d\n", fahr, calsius);
         fahr = fahr + step;
     }
 

@@ -9,6 +9,7 @@ int main(int argc, char const *argv[])
     while (c != EOF)
     {
         putchar(c);
+        printf("getchar() != EOF: %d \n", getchar() != EOF);
         c = getchar();
     }
 

@@ -1,22 +1,23 @@
-#include<stdio.h>
+#include <stdio.h>
 
 int main()
 {
-				iPlusPlus();
-				plusPlusi();
+	iPlusPlus();
+	plusPlusi();
 }
 
 void iPlusPlus()
 {
-				for(int i=0; i<10; i++)
-				{
-								printf("%d\n",i);
-				}
+	for (int i = 0; i < 10; i++)
+	{
+		printf("%d\n", i);
+	}
 }
 
-void plusPlusi(){
-				for(int i=0; i<10; ++i)
-				{
-								printf("%d\n",i);
-				}
+void plusPlusi()
+{
+	for (int i = 0; i < 10; ++i)
+	{
+		printf("%d\n", i);
+	}
 }

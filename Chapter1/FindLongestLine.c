@@ -1,24 +1,22 @@
 #include <stdio.h>
 #define MAXLINE 1000
+#include <string.h>
 
 int getlines(char s[], int limt)
 {
-    int c;
+    int c,i;
 
-    for (int i = 0; i < limt - 1; ++i)
+    for (i = 0; i < limt - 1 && (c=getchar())!=EOF && c!='\n'; ++i)
     {
-        if ((c = getchar()) != EOF && c != '\n')
-        {
-            s[i] = c;
-        }
-        else if (c == '\n')
-        {
-            s[i] = '\0';
-            break;
-        }
+       s[i] = c;
     }
-
-    return sizeof(s);
+    if(c == '\n')
+    {
+            s[i]=c;
+            ++i;
+    }
+    s[i]='\0';
+    return i;
 }
 
 void copy(char to[], char from[])

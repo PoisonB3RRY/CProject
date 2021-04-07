@@ -63,11 +63,11 @@ int computeInt(int argArray[])
         int temp;
         if (argArray[i] >= 'A' && argArray[i] <= 'F')
         {
-            temp = argArray[i] - '0' - 9;
+            temp = argArray[i] - 'A' + 10;
         }
         if (argArray[i] >= 'a' && argArray[i] <= 'f')
         {
-            temp = argArray[i] - '0' - 41;
+            temp = argArray[i] - 'a' + 10;
         }
         else
         {

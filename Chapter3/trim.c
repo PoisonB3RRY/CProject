@@ -17,13 +17,17 @@ int main()
         i++;
     }
 
+    printf("%lu\n", strlen(s));
+
     trim(s);
     
-    while(s[j] != '\0')
+    printf("%lu\n",strlen(s));
+
+  /*  while(s[j] != '\0')
     {
         putchar(s[j]);
         j++;
-    }
+    } */
     return 0;
 }
 

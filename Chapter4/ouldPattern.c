@@ -61,7 +61,7 @@ int strindex(char s[], char t[], int indexes[])
         }
         if (k > 0 && t[k] == '\0')
         {
-            indexes[h] = i;
+            indexes[h] = h;
             ++h;
             // return i;
         }

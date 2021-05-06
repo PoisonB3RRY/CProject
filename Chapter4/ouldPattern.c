@@ -3,7 +3,7 @@
 #define MAXLINE 1000
 
 int gelinedif(char line[], int max);
-int strindex(char source[], char searchfor[]);
+int strindex(char source[], char searchfor[], int indexes[]);
 
 char pattern[] = "ould";
 
@@ -12,13 +12,19 @@ int main()
 {
     char line[MAXLINE];
     int found = 0;
+    int len;
+
+    int indexes[100];
 
     while (gelinedif(line, MAXLINE) > 0)
     {
-        if (strindex(line, pattern) >= 0)
+        if ((len = strindex(line, pattern, indexes)) >= 0)
         {
-            printf("%s", line);
-            found++;
+            for (int count = 0; count < len; count++)
+            {
+                printf("%d,", indexes[count]);
+                found++;
+            }
         }
     }
     return found;
@@ -30,7 +36,7 @@ int gelinedif(char s[], int lim)
     int c, i;
 
     i = 0;
-    while (--lim > 0 && (c = getchar()) != EOF && c != '\n')
+    while (--lim > 0 && (c = getchar()) != EOF)
     {
         s[i++] = c;
     }
@@ -42,9 +48,10 @@ int gelinedif(char s[], int lim)
     return i;
 }
 
-int strindex(char s[], char t[])
+int strindex(char s[], char t[], int indexes[])
 {
-    int i, j, k;
+    int i, j, k, h;
+    h = 0;
 
     for (i = 0; s[i] != '\0'; i++)
     {
@@ -54,8 +61,10 @@ int strindex(char s[], char t[])
         }
         if (k > 0 && t[k] == '\0')
         {
-            return i;
+            indexes[h] = i;
+            ++h;
+            // return i;
         }
     }
-    return -1;
+    return h;
 }

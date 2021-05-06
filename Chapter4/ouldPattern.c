@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <string.h>
 #define MAXLINE 1000
 
 int gelinedif(char line[], int max);
-int strindex(char source[], char searchfor[], int indexes[]);
+int strindex(char source[], char searchfor[]);
 
 char pattern[] = "ould";
 
@@ -11,16 +12,13 @@ int main()
 {
     char line[MAXLINE];
     int found = 0;
-    int indexes[100];
 
     while (gelinedif(line, MAXLINE) > 0)
     {
-        if (strindex(line, pattern, indexes) >= 0)
+        if (strindex(line, pattern) >= 0)
         {
-            for (int w = 0; indexes[w] != NULL; w++)
-            {
-                printf('%d', indexes[w]);
-            }
+            printf("%s", line);
+            found++;
         }
     }
     return found;
@@ -44,11 +42,9 @@ int gelinedif(char s[], int lim)
     return i;
 }
 
-int strindex(char s[], char t[], int indexes[])
+int strindex(char s[], char t[])
 {
-    int i, j, k, h;
-
-    h = 0;
+    int i, j, k;
 
     for (i = 0; s[i] != '\0'; i++)
     {
@@ -58,13 +54,8 @@ int strindex(char s[], char t[], int indexes[])
         }
         if (k > 0 && t[k] == '\0')
         {
-            indexes[h] = i;
-            h++;
+            return i;
         }
     }
-    if (indexes[0] == NULL)
-    {
-        return -1;
-    }
-    return 0;
+    return -1;
 }

@@ -1,5 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include <cal4getop.c>
+#include <cal4getch.c>
+#include <cal4PushPop.c>
+
 
 #define MAXOP 100
 #define NUMBER '0'

@@ -19,7 +19,7 @@ int main()
     {
         if ((len = strindex(line, pattern)) >= 0)
         {
-            printf("%d",len);
+            printf("%d", len);
         }
     }
     return found;
@@ -46,7 +46,7 @@ int gelinedif(char s[], int lim)
 int strindex(char s[], char t[])
 {
     int i, j, k, h;
-    h=0;
+    h = 0;
     int indexArray[100];
 
     for (i = 0; s[i] != '\0'; i++)
@@ -61,9 +61,9 @@ int strindex(char s[], char t[])
             ++h;
         }
     }
-    if(h == 0)
+    if (h == 0)
     {
         return -1;
     }
-    return indexArray[h-1];
+    return indexArray[h - 1];
 }

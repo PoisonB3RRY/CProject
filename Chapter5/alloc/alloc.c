@@ -1,24 +1,26 @@
 #include <stdio.h>
-#define ALLOCSIZE 10000 //size of available space
+#define ALLOCSIZE 10000
 
-static char allocbuf[ALLOCSIZE]; // storate for alloc
-static char *allocp = allocbuf; //next free position
+static char allocbuf[ALLOCSIZE];
+static char *allocp = allocbuf;
 
 char *alloc(int n)
 {
-    if(allocbuf + ALLOCSIZE - allocp >= n) //have enough space to be allocation
+    if (allocbuf + ALLOCSIZE - allocp >= n)
     {
         allocp += n;
         return allocp - n;
     }
-    else 
+    else
     {
-        return 0; //no enough space
+        return 0;
     }
 }
 
-void afree(char *p) //fredd storage pointed to by p*
+void afree(char *p)
 {
-    if (p >= allocbuf && p< allocbuf + ALLOCSIZE)
+    if (p >= allocbuf && p <= allocbuf + ALLOCSIZE)
+    {
         allocp = p;
+    }
 }

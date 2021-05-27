@@ -19,7 +19,7 @@ int main()
 }
 
 #define MAXLEN 1000
-int getline(char *, int);
+int getline2(char *, int);
 char *alloc(char *, int);
 
 //readlines read input lines
@@ -29,9 +29,9 @@ int readline(char *lineptr[], int maxlines)
     char *p, line[MAXLEN];
 
     nlines = 0;
-    while ((len = getline(line, MAXLEN)) > 0)
+    while ((len = getline2(line, MAXLEN)) > 0)
     {
-        if (nlines >= maxlines || p = alloc(line, len) == NULL)
+        if (nlines >= maxlines || (p = alloc(line, len)) == NULL)
         {
             return -1;
         }
@@ -45,7 +45,7 @@ int readline(char *lineptr[], int maxlines)
     return nlines;
 }
 
-int getline(char *p, int lim)
+int getline2(char *p, int lim)
 {
     int i, c;
 

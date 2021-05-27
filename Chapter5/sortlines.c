@@ -20,9 +20,10 @@ int main()
 
 #define MAXLEN 1000
 int getline(char *, int);
+char *alloc(char *, int);
 
 //readlines read input lines
-int readline(char *lineptr, int maxlines)
+int readline(char *lineptr[], int maxlines)
 {
     int len, nlines;
     char *p, line[MAXLEN];
@@ -32,9 +33,16 @@ int readline(char *lineptr, int maxlines)
     {
         if (nlines >= maxlines || p = alloc(line, len) == NULL)
         {
-            /* code */
+            return -1;
+        }
+        else
+        {
+            line[len - 1] = '\0';
+            strcpy(p, line);
+            lineptr[nlines++] = p;
         }
     }
+    return nlines;
 }
 
 int getline(char *p, int lim)
@@ -68,4 +76,46 @@ char *alloc(char *p, int n)
     {
         return 0;
     }
+}
+
+void writelines(char *lineptr[], int nlines)
+{
+    int i;
+    for (i = 0; i < nlines; i++)
+    {
+        printf("%s\n", lineptr[i]);
+    }
+}
+
+//qsort: sort v[left]... v[right] into increasing order
+void qsort(char *v[], int left, int right)
+{
+    int i, last;
+    void swap(char *v[], int i, int j);
+
+    if (left > right)
+    {
+        return;
+    }
+    swap(v, left, (left + right) / 2);
+    last = left;
+    for (i = left + 1; i < right; i++)
+    {
+        if (strcmp(v[i], v[left]) < 0)
+        {
+            swap(v, ++last, i);
+        }
+    }
+    swap(v, left, right);
+    qsort(v, left, last - 1);
+    qsort(v, last + 1, right);
+}
+
+void swap(char *v[], int i, int j)
+{
+    char *temp;
+
+    temp = v[i];
+    v[i] = v[j];
+    v[j] = temp;
 }

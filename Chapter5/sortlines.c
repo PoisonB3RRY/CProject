@@ -31,7 +31,6 @@ int main()
 
 #define MAXLEN 1000
 int getline2(char *, int);
-char *alloc(char *, int);
 
 //readlines read input lines
 int readlines(char *lineptr[], int maxlines)

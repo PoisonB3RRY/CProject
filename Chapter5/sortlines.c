@@ -48,7 +48,7 @@ int readlines(char *lineptr[], int maxlines)
         }
         else
         {
-            line[len - 1] = '\0';
+            line[len - 1] = '\0'; //delete newline
             strcpy(p, line);
             lineptr[nlines++] = p;
         }

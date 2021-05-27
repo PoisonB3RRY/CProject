@@ -41,7 +41,7 @@ int readlines(char *lineptr[], int maxlines)
     nlines = 0;
     while ((len = getline2(line, MAXLEN)) > 0)
     {
-        if (nlines >= maxlines || (p = alloc(line, len)) == NULL)
+        if (nlines >= maxlines || (p = alloc(line, len)) == NULL) //assign a array name's p length of len
         {
             return -1;
         }

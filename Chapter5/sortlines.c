@@ -5,7 +5,7 @@
 
 char *lineptr[MAXLINE];
 
-void readlines(char *lineptr[], int nlines);
+int readlines(char *lineptr[], int nlines);
 void writelines(char *lineptr[], int nlines);
 char *alloc(char *, int);
 
@@ -14,8 +14,19 @@ void qsort(char *lineptr[], int left, int right);
 //sort input lines
 int main()
 {
+    int nlines; //number of input lines read
 
-    return 0;
+    if ((nlines = readlines(lineptr, MAXLINE)) >= 0)
+    {
+        qsort(lineptr, 0, nlines - 1);
+        writelines(lineptr, nlines);
+        return 0;
+    }
+    else
+    {
+        printf("error: input too big to sort\n");
+        return 1;
+    }
 }
 
 #define MAXLEN 1000
@@ -23,7 +34,7 @@ int getline2(char *, int);
 char *alloc(char *, int);
 
 //readlines read input lines
-int readline(char *lineptr[], int maxlines)
+int readlines(char *lineptr[], int maxlines)
 {
     int len, nlines;
     char *p, line[MAXLEN];

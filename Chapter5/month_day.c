@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <ctype.h>
+#include <string.h>
 
 static char daytab[2][12] = {
     {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31},
@@ -17,7 +19,7 @@ void main()
     printf("day: ");
     scanf("%d", &day);
 
-    char date[] = {year, '-', month, '-', day};
+    char date[100] = {year, '-', month, '-', day};
 
     int result = day_of_year(year, month, day);
     printf("Day of: %s\t is %d\n", date, result);

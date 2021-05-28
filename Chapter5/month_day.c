@@ -19,10 +19,8 @@ void main()
     printf("day: ");
     scanf("%d", &day);
 
-    char date[100] = {year, '-', month, '-', day};
-
     int result = day_of_year(year, month, day);
-    printf("Day of: %s\t is %d\n", date, result);
+    printf("Day of: %d-%d-%d\t is %d\n", year, month, day, result);
 }
 
 //day_of_year: set day of year from month & day

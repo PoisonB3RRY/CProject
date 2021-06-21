@@ -1,9 +1,10 @@
 #include <stdio.h>
 
 // cat: concatenate files, version 1
+void filecopy(FILE *, FILE *);
+
 int main(int argc, char *argv[]){
     FILE *fp;
-    void filecopy(FILE *, FILE *);
 
     if(argc == 1){
         filecopy(stdin, stdout);

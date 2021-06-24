@@ -21,64 +21,56 @@ void reverse(char *s)
 
     char *forward, *backword;
 
-    int lenght = strlen(s);
-
-    forward = s;
-    backword = s + lenght - 1;
-
-    for (; backword >= s; backword--)
+    while(1)
     {
-        if (*backword == '(')
+        int lenght = strlen(s);
+        forward = s;
+        backword = s + lenght - 1;
+
+        for (; backword >= s; backword--)
         {
-            printf("123");
+            if (*backword != '(')
+            {
+                continue;
+            }
             for (; forward < s + lenght - 1; forward++)
             {
-                if (*forward == ')')
+                if(*forward != ')')
                 {
-                    printf("456");
-                    char *p1, *p2;
-                    p1 = backword;
-                    p2 = forward;
-                    while (p1 < p2)
-                    {
-                        char c = *p1;
-                        *p1 = *p2;
-                        *p2 = c;
-                        p1++;
-                        p2--;
-                    }
-                    deletec(s, forward);
-                    printf("forword: %c\n", *forward);
-                    deletec(s, backword);
-                    printf("backword: %c\n", *backword);
+                    continue;
                 }
+                char *p1, *p2;
+                p1 = backword;
+                p2 = forward;
+                while (p1 < p2)
+                {
+                    char c = *p1;
+                    *p1 = *p2;
+                    *p2 = c;
+                    p1++;
+                    p2--;
+                }
+                printf("%s\n",s);
+                deletec(s, backword);
+                printf("%s\n", s);
+                deletec(s, forward - 1);
+                printf("%s\n", s);
                 break;
             }
+            break;
         }
-        continue;
     }
-    // char *ret1 = strchr(s, '(');
-    // char *ret2 = strchr(s, ')');
-    // printf("ret1: %s\n", ret1);
-    // printf("ret2: %s\n", ret2);
-
-    // if (ret1 && ret2)
-    // {
-    //     continue;
-    // }
-    // break;
 }
 
 void deletec(char *s, char *address)
 {
-    int c;
-    for (int i = 0; i < strlen(s) - 1; i++)
+    int len = strlen(s);
+    int  c= s + len - address + 1;
+
+    while(s[c] != '\0')
     {
-        if (s[i] != *address)
-        {
-            continue;
-        }
-        s[i] = s[i + 1];
+        s[c] = s[c+1];
+        c++;
     }
-    s = s - strlen(s) + 1;
+    // printf("%s\n",s);
 }

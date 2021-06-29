@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <ctype.h>
 
-int main(){
+int main() {
     int c;
 
-    while ((c=getchar()) != EOF){ //getchar()输入的字符会放在键盘缓冲区中
+    while ((c = getchar()) != EOF) { //getchar()输入的字符会放在键盘缓冲区中
         putchar(tolower(c));
     }
 

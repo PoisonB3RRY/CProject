@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <fcntl.h>
+#include <stdarg.h>
 #include "syscalls.h"
 
 #define PERMS 0666
@@ -35,4 +36,15 @@ int main(int argc, char const *argv[])
 
 
     return 0;
+}
+
+void error(char *fmt, ...) {
+    va_list args;
+
+    va_start(args, fmt);
+    fprintf(stderr, "error: ");
+    vprintf(stderr , fmt, args);
+    fprintf(stderr, "\n");
+    va_end(args);
+    exit(1);
 }

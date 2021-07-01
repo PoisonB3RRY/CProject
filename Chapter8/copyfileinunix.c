@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <stdarg.h>
-#include "syscalls.h"
+#include <unistd.h>
+#include <stdlib.h>
 
 #define PERMS 0666
-#define BUFSIZ 1000
 
 void error(char *, ...);
 
@@ -43,7 +43,7 @@ void error(char *fmt, ...) {
 
     va_start(args, fmt);
     fprintf(stderr, "error: ");
-    vprintf(stderr , fmt, args);
+    vprintf(fmt, args);
     fprintf(stderr, "\n");
     va_end(args);
     exit(1);
